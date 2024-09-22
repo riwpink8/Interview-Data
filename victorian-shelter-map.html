@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Map Visualization</title>
+    <title>My Vega-Lite Map</title>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
-    <h1>My Vega-Lite Map</h1>
     <div id="vis"></div>
-
     <script>
         var spec = {
-            $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-            // your Vega-Lite specification here
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "description": "A simple Vega-Lite map.",
+            "data": {
+                "url": "data/mydata.json" // Path to your data file
+            },
+            "mark": "point",
+            "encoding": {
+                "longitude": {"field": "lon", "type": "quantitative"},
+                "latitude": {"field": "lat", "type": "quantitative"}
+            }
         };
         vegaEmbed('#vis', spec);
     </script>
 </body>
 </html>
+
 
