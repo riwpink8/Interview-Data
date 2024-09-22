@@ -1,0 +1,46 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 450,
+  "title": "Number of Animals in Care in Victorian Shelters",
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/riwpink8/animal-pound-data/refs/heads/main/vic_localities%20(1).topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "vic_localities"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgray",
+        "stroke": "white"
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/riwpink8/animal-pound-data/refs/heads/main/Data%20for%20Week%209%20Homework.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "longitude": {
+          "field": "Longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "Total Animals",
+          "type": "quantitative",
+          "title": "Number of Animals"
+        }
+      }
+    }
+  ]
+}
